@@ -49,6 +49,10 @@ public class JobRepo {
         }
     }
 
+    public void deleteJob(int postId) {
+        jobs.removeIf(job -> job.getPostId() == postId);
+    }
+
     @Override
     public String toString() {
         return "JobRepo{" +

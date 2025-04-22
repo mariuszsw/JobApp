@@ -35,4 +35,10 @@ public class JobRestController {
         jobService.updateJob(jobPost);
         return jobService.getJob(jobPost.getPostId());
     }
+
+    @DeleteMapping("jobPost/{postId}")
+    public String deleteJob(@PathVariable int postId) {
+        jobService.deleteJob(postId);
+        return "Deleted";
+    }
 }
