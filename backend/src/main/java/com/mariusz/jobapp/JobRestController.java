@@ -30,6 +30,12 @@ public class JobRestController {
         return jobService.getJob(jobPost.getPostId());
     }
 
+    @GetMapping("jobPosts/keyword/{keyword}")
+    public List<JobPost> searchByKeyword(@PathVariable("keyword") String keyword) {
+        return jobService.search(keyword);
+    }
+
+
     @PutMapping("jobPost")
     public JobPost updateJob(@RequestBody JobPost jobPost) {
         jobService.updateJob(jobPost);

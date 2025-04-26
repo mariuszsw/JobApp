@@ -40,6 +40,10 @@ public class JobService {
         repo.deleteById(postId);
     }
 
+    public List<JobPost> search(String keyword) {
+        return repo.findByPostProfileContainingOrPostDescContaining(keyword, keyword);
+    }
+
     public void load() {
         List<JobPost> jobs = new ArrayList<>(Arrays.asList(
 
@@ -52,4 +56,6 @@ public class JobService {
 
         repo.saveAll(jobs);
     }
+
+
 }
